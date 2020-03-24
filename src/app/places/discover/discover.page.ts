@@ -14,4 +14,10 @@ export class DiscoverPage implements OnInit {
   ngOnInit() {
     this.loadedPlaces = this._placesService.places;
   }
+
+  onSelectPlace(index: number) {
+    const selectedPlace = this.loadedPlaces[index + 1];
+    this.loadedPlaces.splice(index + 1, 1);
+    this.loadedPlaces.unshift(selectedPlace);
+  }
 }

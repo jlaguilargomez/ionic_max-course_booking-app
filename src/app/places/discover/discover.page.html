@@ -26,12 +26,15 @@
       <ion-col size="12" size-sm="8" offset-sm="2" class="ion-text-center">
         <ion-list>
           <!-- vamos a mostrar ahora el resto de elementos de la lista desde la posición 1 -->
-          <ion-item *ngFor="let place of loadedPlaces.slice(1)">
+          <ion-item
+            *ngFor="let place of loadedPlaces.slice(1), index as i"
+            (click)="onSelectPlace(i)"
+          >
             <ion-thumbnail slot="start">
               <ion-img [src]="place.imageUrl"></ion-img>
             </ion-thumbnail>
             <ion-label>
-              <h2>{{place.title}}</h2>
+              <h2>{{place.title}} {{i}}</h2>
               <p>{{place.description}}</p>
             </ion-label>
           </ion-item>
